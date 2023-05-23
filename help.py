@@ -2,8 +2,18 @@ from tkinter import *
 
 root=Tk()
 
+#e = Entry(root, width=50, bg="blue", fg="white", borderwidth=5)
+e = Entry(root, width=50, borderwidth=5)
+e.pack()
+e.insert(0, "Enter your name: ")
+
+
 def myClick():
-    myLabel3=Label(root, text="Look! I clicked a Button!!")
+    #yLabel3=Label(root, text="Look! I clicked a Button!!")
+    #myLabel3=Label(root, text=e.get())
+    hello="Hello" + e.get()
+    myLabel3=Label(root, text=hello)
+    #myLabel3=Label(root, text="Hello " + e.get())
     myLabel3.pack()
 
 # Creating a Label Widget
@@ -12,7 +22,8 @@ def myClick():
 #myButton=Button(root, text="Click Me!")
 #myButton=Button(root, text="Click Me!", state=DISABLED)
 #myButton=Button(root, text="Click Me!", padx=50, pady=10)
-myButton=Button(root, text="Click Me!", command=myClick, fg="blue", bg="green")
+#myButton=Button(root, text="Click Me!", command=myClick, fg="blue", bg="green")
+myButton=Button(root, text="Enter your name", command=myClick)
 
 
 # Showing it onto the screen
