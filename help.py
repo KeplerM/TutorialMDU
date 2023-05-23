@@ -11,7 +11,7 @@ e.insert(0, "Enter your name: ")
 def myClick():
     #yLabel3=Label(root, text="Look! I clicked a Button!!")
     #myLabel3=Label(root, text=e.get())
-    hello="Hello" + e.get()
+    hello="Hello " + e.get()
     myLabel3=Label(root, text=hello)
     #myLabel3=Label(root, text="Hello " + e.get())
     myLabel3.pack()
