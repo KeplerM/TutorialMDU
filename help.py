@@ -12,7 +12,7 @@ def myClick():
 #myButton=Button(root, text="Click Me!")
 #myButton=Button(root, text="Click Me!", state=DISABLED)
 #myButton=Button(root, text="Click Me!", padx=50, pady=10)
-myButton=Button(root, text="Click Me!", command=myClick)
+myButton=Button(root, text="Click Me!", command=myClick, fg="blue", bg="green")
 
 
 # Showing it onto the screen
