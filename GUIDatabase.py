@@ -60,6 +60,31 @@ def submit():
     state.delete(0,END)
     zipcode.delete(0,END)
 
+#Create Query Function
+def query():
+    #Create a database or connect to one
+    conn=sqlite3.connect('address_book.db')
+    #Create cursor
+    c=conn.cursor()
+
+    #Querry the database
+    c.execute("SELECT *, oid FROM addresses")
+    records=c.fetchall()
+    print(records)
+
+    #Loop Thru Results
+
+    print_records=''
+    for record in records:
+        print_records += str(record[0]) + " " + str(record[1]) + "\n"
+
+    query_label = Label(root, text=print_records)
+    query_label.grid(row=8, column=0, columnspan=2)
+
+    #Commit changes
+    conn.commit()
+    #Close connection
+    conn.close()
 
 #Create Text Boxes
 f_name=Entry(root, width=30)
@@ -104,5 +129,16 @@ zipcode_label.grid(row=5, column=0)
 
 submit_btn=Button(root, text="Add record to database", command=submit)
 submit_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
+
+
+#Create a Querry Button
+
+query_btn=Button(root, text="Show records", command=query)
+query_btn.grid(row=7, column=0, columnspan=2, pady=10, padx=10, ipadx=137)
+
+#Commit changes
+conn.commit()
+#Close connection
+conn.close()
 
 root.mainloop()
