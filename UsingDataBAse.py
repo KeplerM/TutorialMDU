@@ -6,7 +6,7 @@ import sqlite3
 
 root=Tk()
 root.title("Open Files Dialog Box")
-root.iconbitmap("AMADEico.ico")
+#root.iconbitmap("AMADEico.ico")
 root.geometry("400x400")
 
 #Databases
