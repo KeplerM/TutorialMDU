@@ -1,12 +1,12 @@
 from tkinter import *
-from PIL import ImageTk, Image
+#from PIL import ImageTk, Image
 from tkinter import messagebox
 from tkinter import filedialog
 import sqlite3
 
 root=Tk()
 root.title("Open Files Dialog Box")
-#root.iconbitmap("AMADEico.ico")
+root.iconbitmap("AMADEico.ico")
 #root.geometry("400x400")
 
 #Databases

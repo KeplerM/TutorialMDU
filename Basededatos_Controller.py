@@ -57,6 +57,56 @@ def readOrdered(field):
     conn.close()
     print(datos)
 
+def search():
+    conn=sql.connect("streamers.db")
+    cursor=conn.cursor()
+    instruccion=f"SELECT * FROM streamers WHERE subs > 6000 ORDER BY subs DESC"
+    cursor.execute(instruccion)
+    datos=cursor.fetchall()
+    conn.commit()
+    conn.close()
+    print(datos)
+
+def updateFields():
+    conn=sql.connect("streamers.db")
+    cursor=conn.cursor()
+    instruccion=f"UPDATE streamers SET followers=1200000 WHERE name like 'El%'"
+    cursor.execute(instruccion)
+    
+    conn.commit()
+    conn.close()
+
+def deleteRow():
+    conn=sql.connect("streamers.db")
+    cursor=conn.cursor()
+    instruccion=f"DELETE FROM streamers WHERE name='Alex'"
+    cursor.execute(instruccion)
+    
+    conn.commit()
+    conn.close()
+
+def filtrar():
+    conn=sql.connect("streamers.db")
+    cursor=conn.cursor()
+    instruccion=f"SELECT * FROM streamers WHERE subs > 6000 AND name='Auero'"
+    cursor.execute(instruccion)
+    datos=cursor.fetchall()
+    conn.commit()
+    conn.close()
+    print(datos)
+
+def Lista():
+    conn=sql.connect("streamers.db")
+    cursor=conn.cursor()
+    instruccion=f"SELECT DISTINCT name FROM streamers"
+    cursor.execute(instruccion)
+    datos=cursor.fetchall()
+    conn.commit()
+    conn.close()
+    lista=list(datos)
+    print(lista)
+   
+
 if __name__=="__main__":
     #createDB()
     #createTable()
@@ -64,9 +114,14 @@ if __name__=="__main__":
     #insertrow("Alex", 800000, 10000)
     #readRows()
     streamers=[
-        ("ElX", 1000000, 2500),
-        ("Cristinini", 3000000, 5500),
-        ("Auero", 8000000, 54565)
+        ("ElX", 10000, 250),
+        ("Alex", 3054300, 550),
+        ("Auero", 5000, 545465)
     ]
     #insertRows(streamers)
-    readOrdered("subs")
+    #readOrdered("subs")
+    #search()
+    #updateFields()
+    #deleteRow()
+    #filtrar()
+    Lista()
