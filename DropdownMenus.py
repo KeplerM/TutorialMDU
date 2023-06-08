@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk, Image
+#from PIL import ImageTk, Image
 from tkinter import messagebox
 from tkinter import filedialog
 
@@ -13,7 +13,7 @@ root.geometry("400x400")
 def show ():
     myLabel=Label(root, text=clicked.get()).pack()
 
-options=[
+options=["",
     "Monday",
     "Tuesday",
     "Wednesday",

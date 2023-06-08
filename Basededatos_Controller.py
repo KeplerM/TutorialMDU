@@ -2,22 +2,27 @@ import sqlite3 as sql
 
 
 def createDB():
-    conn=sql.connect("streamers.db")
+    conn=sql.connect("FUMD_Database.db")
     conn.commit()
     conn.close
 
 def createTable():
-    conn=sql.connect("streamers.db")
+    conn=sql.connect("FUMD_Database.db")
     cursor=conn.cursor()
     cursor.execute(
-        """CREATE TABLE streamers (
-        name text, 
-        followers integer,
-        subs integer
+        """CREATE TABLE FUMD_Database (
+        plies integer, 
+        orientation_groups integer,
+        m_one integer,
+        m_two integer,
+        m_three integer,
+        m_four integer,
+        m_five integer,
+        stacking_sequence text
         )"""
     )
     conn.commit()
-    conn.close()
+    conn.close() 
 
 def insertrow(nombre, followers, subs):
     conn=sql.connect("streamers.db")
@@ -39,11 +44,11 @@ def readRows():
     conn.close()
     print(datos)
 
-def insertRows(streamerList):
-    conn=sql.connect("streamers.db")
+def insertRows(RawList):
+    conn=sql.connect("FUMD_Database.db")
     cursor=conn.cursor()
-    instruccion=f"INSERT INTO streamers VALUES (?,?,?)"
-    cursor.executemany(instruccion, streamerList)
+    instruccion=f"INSERT INTO FUMD_Database VALUES (?,?,?,?,?,?,?,?)"
+    cursor.executemany(instruccion, RawList)
     conn.commit()
     conn.close()
 
@@ -113,15 +118,16 @@ if __name__=="__main__":
     #insertrow("Ibai", 7000000, 25000)
     #insertrow("Alex", 800000, 10000)
     #readRows()
-    streamers=[
-        ("ElX", 10000, 250),
-        ("Alex", 3054300, 550),
-        ("Auero", 5000, 545465)
-    ]
-    #insertRows(streamers)
+    
     #readOrdered("subs")
     #search()
     #updateFields()
     #deleteRow()
     #filtrar()
-    Lista()
+    #Lista()
+    raw=[
+        (7,0,0,0,0,0,0,0),
+        (8,0,0,0,0,0,0,0)
+        
+    ]
+    insertRows(raw)
